@@ -1,0 +1,85 @@
+:host {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 0;
+	padding-bottom: unset !important;
+	overflow: visible;
+	z-index: 1;
+}
+:host(.expand) {
+	height: 32px;
+	padding-bottom: 2px;
+}
+
+:host(.expand) ng-menu {
+	height: 100%;
+	margin-top: 0;
+	bottom: 3px;
+}
+
+:host(.expand) ng-title {
+	display: flex;
+	align-items: flex-end;
+	bottom: 3px;
+	margin-left: 6px;
+	color: #666;
+}
+:host(.expand) ng-custom {
+	display: flex;
+	flex-direction: row-reverse;
+	width: 100%;
+	right: 1px;
+}
+
+buttons {
+	display: flex;
+}
+
+button {
+	padding-left: 6px;
+	padding-right: 6px;
+	height: 100%;
+	outline: none;
+	border: 1px solid #999;
+	border-radius: 3px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+button:hover {
+	filter: brightness(95%);
+}
+button:active {
+	color: red;
+}
+
+ng-custom {
+	position: relative;
+	display: none;
+}
+
+ng-menu {
+	position: relative;
+	width: 16px;
+	height: 16px;
+	margin-top: 1px;
+	bottom: 0;
+	z-index: 1;
+	cursor: pointer;
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/></svg>');
+	background-repeat: no-repeat;
+	background-position: bottom -3px right 0px;
+	background-size: auto;
+}
+:host(.expand) ng-menu {
+	background-position: bottom 0px right 0px;
+}
+
+ng-title {
+	position: relative;
+	display: none;
+}
+ng-title > span {
+	white-space: nowrap;
+	font-weight: bold;
+}

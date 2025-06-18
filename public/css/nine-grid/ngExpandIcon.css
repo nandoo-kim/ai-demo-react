@@ -1,0 +1,36 @@
+:host {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+:host(.ng-left) {
+	margin-right: 2px;
+}
+:host(.ng-right) {
+	margin-left: 2px;
+}
+
+svg {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+
+div.ng-expand-icon-sphere {
+	border-radius: 50%;
+}
+
+svg.ng-expand-icon-circle {
+}
+
+svg.ng-expand-icon-rect {
+}
+
+svg.ng-expand-icon-check {
+}
+
+div.ng-expand-icon-svg {
+}
+
+img.ng-expand-icon-img {
+}

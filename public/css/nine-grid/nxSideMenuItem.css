@@ -1,0 +1,221 @@
+:host {
+	padding: 0;
+	margin: 0;
+	position: relative;
+	display: flex;
+	align-items: unset;
+	--background-color: #333;
+	background-color: unset;
+	cursor: pointer;
+	transition: opacity 0.5s ease-out, height 0.5s ease-out;
+}
+:host(.group) {
+	height: 48px;
+}
+:host(:not(.group)) {
+	height: 32px;
+}
+
+:host(.active) {
+	--background-color: #999;
+	color: #9FF2FF;
+}
+
+/**
+:host(.collapse:not(.group)) {
+	--display: none;
+}
+:host(.collapse:not(.group)) {
+	transition: opacity 0.5s ease-out, height 0.5s ease-out;
+	opacity: 0;
+	height: 0;
+	--display: none;
+}*/
+
+
+
+:host(.collapse:not(.group):not(.hover)) {
+	opacity: 0;
+	height: 0;
+}
+/**
+:host(:not(.group):not(.expand)) {
+	opacity: 0;
+	height: 0;
+} */
+
+:host(:hover) {
+	filter: brightness(90%);
+}
+
+
+
+.menubar {
+	display: inline-block;
+	--padding-left: 16px;
+	--margin-left: 16px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	transition: height 0.5s ease-out, padding 0.5s ease-out;
+	text-align: left;
+	--width: calc(100% - 36px);
+	--margin: 0;
+}
+:host(.group) .menubar {
+	font-weight: 700;
+}
+:host(:not(.group)) .menubar {
+	font-weight: 400;
+}
+:host(.collapse:not(.hover)) .menubar {
+	transition: width 0.5s ease-out, padding-left 0.5s ease-out;
+	width: 0;
+	padding-left: unset;
+}
+
+li {
+	display: flex;
+	align-items: center;
+	padding: 0;
+	margin: 0;
+	position: relative;
+	color: unset;
+	font-weight: bold;
+	width: calc(100% + 36px);
+}
+
+:host(.collapse:not(.hover)) li {
+	justify-content: center;
+}
+
+
+:host(.group) li {
+	list-style-type: none;
+}
+:host(:not(.group)) li {
+	list-style-type: unset;
+}
+:host(:not(.group)) li::before {
+	content: '•';
+	margin-right: 8px;
+	margin-left: 16px;
+}
+
+
+
+.icon {
+	position: relative;
+	left: 0;
+	--top: 50%;
+	--transform: translateY(-50%);
+	width: 16px;
+	height: 16px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	--margin-right: 16px;
+	transition: width 0.5s ease-out, height 0.5s ease-out;
+}
+:host(.collapse:not(.hover)) .icon {
+	width: 20px;
+	height: 20px;
+}
+:host(.collapse:not(.hover)) .menubar,
+:host(.collapse:not(.hover)) .expand-icon {
+	display: none;
+}
+.icon-home {
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="lightgray" viewBox="0 0 16 16"><path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/></svg>');
+}
+
+.icon-base {
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 16 16"><path d="M0 .5A.5.5 0 0 1 .5 0h15a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5H2v-2H.5a.5.5 0 0 1-.5-.5v-3A.5.5 0 0 1 .5 6H2V4H.5a.5.5 0 0 1-.5-.5zM3 4v2h4.5V4zm5.5 0v2H13V4zM3 10v2h4.5v-2zm5.5 0v2H13v-2zM1 1v2h3.5V1zm4.5 0v2h5V1zm6 0v2H15V1zM1 7v2h3.5V7zm4.5 0v2h5V7zm6 0v2H15V7zM1 13v2h3.5v-2zm4.5 0v2h5v-2zm6 0v2H15v-2z"/></svg>');
+}
+
+.menubar {
+	margin-left: 8px;
+}
+
+
+.expand-icon {
+	width: 8px;
+	height: 8px;
+	--border-left: 4px solid transparent;
+	--border-right: 4px solid transparent;
+	--border-top: 4px solid #ccc;
+	position: absolute;
+	right: 16px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: auto;
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="white" class="bi bi-caret-down-fill" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>');
+	animation: rotate-out 0.3s ease-in-out forwards;
+}
+:host(:not(.expand)) .expand-icon {
+	transform: rotate(180deg);
+	animation: rotate-in 0.3s ease-in-out forwards;
+}
+@keyframes rotate-in {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(180deg);
+	}
+}
+@keyframes rotate-out {
+	from {
+		transform: rotate(180deg);
+	}
+	to {
+		transform: rotate(0deg);
+	}
+}
+
+:host(.collapse:not(.hover)) .expand-icon {
+	display: none;
+}
+:host(:not(.group)) .expand-icon {
+	display: none;
+}
+
+a {
+	color: #999; /* 금색 */
+	text-decoration: none; /* 밑줄 제거 */
+}
+
+a:hover {
+	color: #ccc; /* 주황색 */
+	text-decoration: underline; /* 호버 시 밑줄 추가 */
+}
+
+:host(:not(.group)) {
+	.icon {
+		display: none;
+	}
+}
+
+:host {
+	.icon {
+		margin-left: 8px;
+	}
+}
+:host(.collapse:not(.hover)) {
+	.icon {
+		margin-left: 4px;
+	}
+}
+
+:host {
+	--overflow: hidden;
+	max-height: 64px; /* 기본 높이 */
+	opacity: 1;
+	transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+:host(.hide) {
+	--display: none;
+	max-height: 0;
+	opacity: 0;
+	padding: 0;
+}

@@ -1,0 +1,59 @@
+:host {
+	height: 100%;
+	width: calc(100% - 8px);
+	display: flex;
+	align-items: center;
+	margin-left: 4px;
+	margin-right: 4px;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+:host * {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+:host(.ng-center) {
+	justify-content: center;
+}
+:host(.ng-left) span {
+	text-align: left;
+}
+:host(.ng-center) span {
+	text-align: center;
+	width: unset;
+}
+:host(.ng-right) span {
+	text-align: right;
+}
+
+span {
+	width: unset;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-left: unset;
+	margin-right: unset;
+	line-height: unset !important;
+}
+span.link {
+	cursor: pointer;
+}
+span.link:hover {
+	color: #048ae8;
+	text-decoration: underline;
+}
+span.link:active {
+	color: red;
+}
+
+div.ng-wrap {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}

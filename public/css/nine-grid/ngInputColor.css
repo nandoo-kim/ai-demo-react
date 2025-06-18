@@ -1,0 +1,77 @@
+:host {
+	--position: relative;
+	height: 100%;
+	width: calc(100% - 8px);
+	display: flex;
+	align-items: center;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+:host(.invalid) button {
+	padding: 2px;
+}
+:host(.invalid) button:after {
+	content: '';
+    width: 16px;
+    height: 16px;
+	border: none;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: auto;
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: none; stroke-width: 2px; stroke: darkgoldenrod;" viewBox="0 0 16 16"><path d="m8 1 7 14H1L8 1z"></path><path d="M7.99 12H8v.01h-.01zM8 6v4"></path></svg>');
+}
+
+input[type=color]:invalid {
+	border: 2px solid red !important;
+}
+
+input[type=color] {
+	width: 100%;
+	height: 26px;
+	padding: 0px;
+	margin-left: unset;
+	border: 1px solid #eee;
+	border-right: none;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: transparent;
+}
+input[type=color]::-webkit-color-swatch {
+	border: 0;
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+}
+input[type=color]::-webkit-color-swatch-wrapper {
+	padding: 1px;
+}
+
+button {
+	display: inline-flex;
+	--width: 24px;
+	height: 26px;
+	--padding: 2px;
+	margin-right: unset;
+	border: 1px solid #eee;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	background-color: #f9f9f9;
+	justify-content: center;
+	align-items: center;
+}
+button:after {
+	content: "";
+	border-top: 0.3em solid;
+	border-right: 0.3em solid transparent;
+	border-bottom: 0;
+	border-left: 0.3em solid transparent;
+}
+input[type=color]:hover {
+	filter: brightness(90%);
+}
+button:hover {
+	filter: brightness(95%);
+}

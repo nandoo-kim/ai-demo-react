@@ -1,0 +1,78 @@
+:host {
+	display: flex;
+	--align-items: flex-start;
+	align-items: center; /* 수직 중앙 정렬 */
+	padding: 10px; /* 여백 추가 */
+	height: 40px;
+}
+
+:host(.collapse) .logo-box { justify-content: center; }
+:host(.collapse:hover) .logo-box, .logo-box { justify-content: space-between; }
+
+.logo-box
+{
+	color: #f0f0f0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
+	width: 100%;
+}
+
+:host(.collapse) .logo-box {
+	width: 0;
+	transition: width 0.5s ease-out;
+}
+:host(.collapse:hover) .logo-box {
+	width: 100%;
+}
+
+.icon-box {
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+
+.icon {
+	fill: var(--icon-color); /* 아이콘 색상 */
+	cursor: pointer;
+	transition: opacity 0.3s ease-in-out; /* 부드러운 전환을 위한 애니메이션 */
+}
+
+.icon-box svg {
+	display: none;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out; /* 부드러운 전환을 위한 애니메이션 */
+}
+
+:host(.collapse) .icon:first-child {
+	display: block;
+	opacity: 1;
+}
+
+:host(:not(.collapse)) .icon:first-child {
+	display: none;
+	opacity: 0;
+}
+
+:host(:not(.collapse)) .icon:nth-child(2) {
+	display: block;
+	opacity: 1;
+}
+
+:host(:not(.collapse)) .icon:nth-child(3) {
+	display: none;
+	opacity: 0;
+}
+
+:host(:not(.collapse)) .icon-box:hover .icon:nth-child(2) {
+	display: none;
+}
+
+:host(:not(.collapse)) .icon-box:hover .icon:nth-child(3) {
+	display: block;
+	opacity: 1;
+}
+
+
+

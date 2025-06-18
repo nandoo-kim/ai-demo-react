@@ -1,0 +1,85 @@
+button {
+	padding: 0;
+}
+
+:host {
+	position: sticky;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	height: calc(100% - 2px);
+	width: 16px;
+	min-width: 16px;
+	border-top: 2px solid #666;
+	border-left: 1px solid #ccc;
+	--border-bottom: 1px solid #ccc;
+	background-color: #f9f9f9;
+}
+
+div.ng-scroll-track {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+div.ng-scroll-thumb {
+	position: relative;
+	width: calc(100% - 2px);
+}
+
+button.ng-scroll-top,button.ng-scroll-bottom {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: calc(100%);
+	height: 16px;
+	border: 0 none;
+	background-color: #eee;
+	outline: 0;
+}
+
+button.ng-scroll-top {
+	border-bottom: 1px solid #ddd;
+}
+button.ng-scroll-bottom {
+	border-top: 1px solid #ddd;
+}
+
+button.ng-scroll-top div.ng-scroll-icon {
+	border-bottom	: 4px solid #999;
+	border-left		: 4px solid transparent;
+	border-right	: 4px solid transparent;
+}
+
+button.ng-scroll-top:disabled div.ng-scroll-icon {
+	border-bottom	: 4px solid #ccc !important;
+}
+
+button.ng-scroll-bottom div.ng-scroll-icon {
+	border-top		: 4px solid #999;
+	border-left		: 4px solid transparent;
+	border-right	: 4px solid transparent;
+}
+
+button.ng-scroll-bottom:disabled div.ng-scroll-icon {
+	border-top		: 4px solid #ccc!important;
+}
+
+.ng-scroll-thumb {
+	position: absolute;
+	background-color: #eee;
+	box-sizing	: border-box;
+	border: 1px solid #ccc;
+	border-radius: 3px 3px 3px 3px;
+}
+
+.ng-scroll-thumb:hover, .ng-scroll-left:hover, .ng-scroll-right:hover, .ng-scroll-top:hover, .ng-scroll-bottom:hover {
+	filter: brightness(95%);
+}
+
+.ng-scroll-thumb:disabled, .ng-scroll-left:disabled, .ng-scroll-right:disabled, .ng-scroll-top:disabled, .ng-scroll-bottom:disabled {
+	pointer-events:none;
+}

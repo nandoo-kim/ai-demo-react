@@ -1,0 +1,143 @@
+dialog::backdrop {
+	background: rgba(0, 0, 0, 0.3);
+}
+
+dialog:modal {
+	width: 500px;
+	height: 150px;
+	min-width: 330px;
+	min-height: 60px;
+}
+
+
+button {
+	cursor: pointer;
+}
+
+buttons.buttons-confirm {
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+}
+
+buttons.buttons-confirm button {
+	height: 32px;
+	margin-right: 8px;
+	border: none;
+	outline: none;
+	width: 60px;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+buttons.buttons-confirm button:hover {
+	filter: brightness(90%);
+}
+buttons.buttons-confirm button:active {
+	color: #ccc;
+}
+
+button.ok {
+	color: white;
+	background-color: #007bff;
+}
+button.cancel {
+	color: white;
+	background-color: #6c757d;
+}
+
+div.msg {
+	
+}
+
+.reset, .apply {
+	display: none;
+}
+
+
+
+:host(.classic) dialog:modal {
+	border: 1px solid #007bff;
+	box-shadow: 0 0 4px 0 #007bff;
+}
+
+:host(.classic) div.head {
+	background-color: #007bff;
+}
+:host(.classic) div.head:hover {
+	filter: brightness(110%);
+}
+
+:host(.classic) div.head span {
+	font-size: 12px;
+}
+
+:host(.classic) div.head span.title {
+	color: #ddd;
+	margin-left: 4px;
+	font-weight: bold;
+}
+
+:host(.classic) div.head span.sub-title {
+	color: #ccc;
+	margin-left: 8px;
+	font-style: italic;
+}
+:host(.classic) div.head button {
+	margin-right: 4px;
+	background-color: transparent;
+	border: none;
+	color: #ccc;
+	font-size: x-small;
+}
+
+
+
+
+:host(.rgb) dialog:modal {
+	border: none;
+	box-shadow: unset;
+	border-top: none;
+}
+
+:host(.rgb) div.left {
+	display: block;
+	background-color: #ddd;
+}
+:host(.rgb) div.left span {
+	color: #ccc;
+}
+:host(.rgb) div.close2 {
+	display: block;
+	color: #666;
+}
+:host(.rgb) div.close2 svg:hover {
+	color: #999;
+}
+:host(.rgb) div.head {
+	height: 4px;
+	background-color: #999;
+	padding: 0;
+}
+:host(.rgb) div.contents {
+	height: calc(100% - 4px);
+}
+
+:host(.rgb) div.head ng-sphere,
+:host(.rgb) div.head span,
+:host(.rgb) div.head buttons {
+	display: none;
+}
+
+:host(.rgb) div.head .rect1,
+:host(.rgb) div.head .rect2,
+:host(.rgb) div.head .rect3 {
+	display: flex;
+}
+
+
+:host(.rgb) div.head:hover {
+	filter: unset;
+}
+

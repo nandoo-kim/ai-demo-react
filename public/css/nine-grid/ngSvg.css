@@ -1,0 +1,22 @@
+:host {
+	height: 100%;
+	width: calc(100% - 8px);
+	display: flex;
+	align-items: center;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+svg {
+
+}
+svg:hover {
+
+}
+
+div.ng-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}

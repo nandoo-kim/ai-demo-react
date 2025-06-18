@@ -1,0 +1,8 @@
+:host {
+	display: flex;
+	--align-items: flex-start;
+	align-items: center; /* 수직 중앙 정렬 */
+	padding: 10px; /* 여백 추가 */
+	height: 40px;
+	justify-content: center;
+}

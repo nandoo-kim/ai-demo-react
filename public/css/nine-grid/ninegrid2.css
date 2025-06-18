@@ -1,0 +1,1760 @@
+body {
+	min-height: 100vh;
+	/* mobile viewport bug fix */
+	min-height: -webkit-fill-available;
+}
+
+html {
+	height: -webkit-fill-available;
+}
+
+nine-grid button {
+	color: unset;
+}
+
+ng-vscrollbar button,ng-hscrollbar button {
+	padding: 0;
+}
+
+/* iOS only */ 
+
+@supports (-webkit-touch-callout: none) {
+	height: -webkit-fill-available;
+}
+
+@keyframes loading{to{transform:rotate(360deg)}}
+.loading,.loadingS {
+	filter: brightness(90%);
+}
+.loading::after {
+	width: 2rem;
+	height: 2rem;
+}
+.loading::after,.loadingS::after {
+}
+ng-filter-panel.loading::after {
+	width: 1rem;
+	height: 1rem;
+}
+
+/**@media (prefers-reduced-motion:reduce){.loading::after}*/
+
+
+.ng-table input[disabled] {
+	pointer-events: none;
+}
+
+.ng-table input[type="number"]::-webkit-outer-spin-button,
+.ng-table input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+nine-grid * {
+	font-size: 12px;
+	--font: 400 12px/normal "Malgun Gothic", "맑은 고딕", AppleSDGothicNeo-Light, sans-serif;
+}
+
+nine-grid tr {
+	height: 32px;
+}
+
+@-webkit-keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+@-moz-keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+@-ms-keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+@-o-keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+nine-grid {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	-webkit-animation: fadeIn 0.3s 0s 1 ease-in-out normal;
+    -moz-animation: fadeIn 0.3s 0s 1 ease-in-out normal;
+    -ms-animation: fadeIn 0.3s 0s 1 ease-in-out normal;
+    -o-animation: fadeIn 0.3s 0s 1 ease-in-out normal;
+	animation: fadeIn 0.3s 0s 1 ease-in-out normal;
+}
+
+nine-grid.loading {
+	--filter: brightness(90%);
+}
+nine-grid.loading::after {
+	content:'';
+	position: absolute;
+	top: calc(50% - 16px);
+	left: calc(50% - 16px);
+	display: inline-block;
+	border-radius: 50%;
+	border: 0.25em solid green;
+	border-right-color:transparent;
+	animation: 0.75s linear infinite loading;
+}
+ng-filter-panel.loading {
+	--filter: brightness(90%);
+}
+ng-filter-panel.loading::after {
+	content:'';
+	position: absolute;
+	top: calc(50% - 16px);
+	left: calc(50% - 16px);
+	display: inline-block;
+	border-radius: 50%;
+	border: 0.25em solid green;
+	border-right-color:transparent;
+	animation: 0.75s linear infinite loading;
+}
+
+ng-head {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 0;
+	padding-bottom: 2px;
+	overflow: visible;
+}
+
+ng-head.expand {
+	height: 32px;
+}
+
+ng-menu {
+	position: relative;
+	width: 16px;
+	height: 16px;
+	margin-top: 1px;
+	bottom: 0;
+	z-index: 1;
+	cursor: pointer;
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/></svg>');
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: auto;
+}
+
+ng-head.expand ng-menu {
+	height: 100%;
+	margin-top: 0;
+	bottom: 3px;
+}
+
+
+ng-title {
+	position: relative;
+	display: none;
+}
+
+ng-head.expand ng-title {
+	display: flex;
+	align-items: flex-end;
+	bottom: 3px;
+	margin-left: 6px;
+	color: #666;
+}
+
+ng-title > span {
+	white-space: nowrap;
+	font-weight: bold;
+}
+
+
+ng-head buttons {
+	display: flex;
+}
+
+ng-head button {
+	padding-left: 6px;
+	padding-right: 6px;
+	height: 100%;
+	outline: none;
+	border: 1px solid #999;
+	border-radius: 3px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+ng-head button:hover {
+	filter: brightness(95%);
+}
+ng-head button:active {
+	color: red;
+}
+
+ng-head > ng-custom {
+	position: relative;
+	display: none;
+}
+
+ng-head.expand > ng-custom {
+	display: flex;
+	flex-direction: row-reverse;
+	width: 100%;
+	right: 1px;
+}
+
+nine-grid .ng-background {
+	height: 2px;
+	background-color: #666;
+	/**border-top: 1px solid #666; */
+}
+nine-grid .ng-body {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #666;
+	border-top: none;
+	top: -2px;
+}
+
+.ng-container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+}
+
+.ng-container-top {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 100%;
+}
+
+.ng-container-bottom {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 16px;
+}
+
+.ng-container-left, .ng-container-right, .ng-container-body {
+	position: relative;
+	display: flex;
+	height: 100%;
+	box-sizing: border-box;
+	background: #f9f9f9;
+	overflow: hidden;
+}
+
+.ng-container-body {
+	width: 100%;
+	background: transparent;
+}
+
+nine-grid ng-vscrollbar {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: calc(100% - 2px);
+	width: 16px;
+	min-width: 16px;
+	border-top: 2px solid #666;
+	border-left: 1px solid #ccc;
+	--border-bottom: 1px solid #ccc;
+	background-color: #f9f9f9;
+}
+
+ng-vscrollbar > .ng-scroll-track {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+}
+
+ng-vscrollbar > .ng-scroll-track > .ng-scroll-thumb {
+	position: relative;
+	width: calc(100% - 2px);
+}
+
+ng-vscrollbar > .ng-scroll-top,ng-vscrollbar > .ng-scroll-bottom {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: calc(100%);
+	height: 16px;
+	border: 0 none;
+	background-color: #eee;
+	outline: 0;
+}
+
+ng-vscrollbar > .ng-scroll-top {
+	border-bottom: 1px solid #ddd;
+}
+
+ng-vscrollbar > .ng-scroll-bottom {
+	border-top: 1px solid #ddd;
+}
+
+ng-hscrollbar {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	border-top: 1px solid #ccc;
+	--border-right: 1px solid #ccc;
+	background-color: #f9f9f9;
+	box-sizing	: border-box;
+}
+
+ng-hscrollbar > .ng-scroll-track {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+ng-hscrollbar > .ng-scroll-track > .ng-scroll-thumb {
+	position: relative;
+	height: calc(100% - 2px);
+}
+
+ng-hscrollbar > .ng-scroll-left,ng-hscrollbar > .ng-scroll-right {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 16px;
+	height: 100%;
+	border: none;
+	margin: 0;
+	background-color: #eee;
+	box-sizing	: border-box;
+	outline: 0;
+}
+
+ng-hscrollbar > .ng-scroll-left {
+	border-right: 1px solid #ddd;
+}
+
+ng-hscrollbar > .ng-scroll-right {
+	border-left: 1px solid #ddd;
+}
+
+.ng-scroll-edge {
+	position: relative;
+	display: flex;
+	width: 17px;
+	height: calc(100% - 1px);
+	background: #eee;
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+}
+
+.ng-etc1 {
+	position: absolute;
+	top : 0;
+	bottom: 0;
+	left: 0;
+	width: 0;
+}
+.ng-etc2 {
+	position: absolute;
+	top : 0;
+	bottom: 0;
+	width: 0;
+	right: 0;
+}
+
+
+div.resizer-col-panel,div.resizer-row-panel {
+	z-index: 3;
+	position: absolute;
+	top : 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: transparent;
+}
+
+div.resizer-col-panel {
+	top : 0;
+	bottom : 0;
+	cursor: col-resize;
+}
+
+div.resizer-row-panel {
+	left : 0;
+	right : 0;
+	cursor: row-resize;
+}
+
+div.resizer-col-panel div.grip,div.resizer-row-panel div.grip {
+	position: absolute;
+	background-color: black;
+	opacity:0.2;
+}
+div.resizer-col-panel div.grip {
+	width: 1px;
+	bottom: 0;
+}
+div.resizer-row-panel div.grip {
+	height: 1px;
+	left: 0;
+	right: 0;
+}
+
+div.resizer-col-panel div.tooltip,div.resizer-row-panel div.tooltip {
+	position: relative;
+	--background-color: white;
+	--border: 1px solid dimgray;
+	opacity:0.8;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 10px;
+}
+div.resizer-col-panel div.tooltip {
+	height: 8px;
+	min-width: 30px;
+	overflow: visible;
+}
+div.resizer-row-panel div.tooltip {
+	width: 8px;
+	min-height: 30px;
+	display: flex;
+	flex-direction: column;
+	overflow: visible;
+}
+div.resizer-row-panel div.tooltip div:first-child {
+	top: 0;
+	height: 50%;
+	width: 1px;
+	background-color: dimgray;
+	display: flex;
+	justify-content: center;
+	overflow: visible;
+}
+div.resizer-row-panel div.tooltip div:first-child::before {
+	content: '';
+	position: absolute;
+	top: -1;
+	border-bottom	: 4px solid dimgray;
+	border-left		: 4px solid transparent;
+	border-right	: 4px solid transparent;
+}
+div.resizer-row-panel div.tooltip div:last-child {
+	bottom: 0;
+	height: 50%;
+	width: 1px;
+	background-color: dimgray;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	overflow: visible;
+}
+div.resizer-row-panel div.tooltip div:last-child::before {
+	content: '';
+	position: absolute;
+	bottom: -1;
+	border-top		: 4px solid dimgray;
+	border-left		: 4px solid transparent;
+	border-right	: 4px solid transparent;
+}
+
+div.resizer-col-panel div.tooltip div:first-child {
+	left: 0;
+	height: 1px;
+	width: 50%;
+	background-color: dimgray;
+	display: flex;
+	align-items: center;
+	overflow: visible;
+}
+div.resizer-col-panel div.tooltip div:first-child::before {
+	content: '';
+	position: absolute;
+	left: -1;
+	border-right	: 4px solid dimgray;
+	border-top		: 4px solid transparent;
+	border-bottom	: 4px solid transparent;
+}
+div.resizer-col-panel div.tooltip div:last-child {
+	right: 0;
+	height: 1px;
+	width: 50%;
+	background-color: dimgray;
+	display: flex;
+	align-items: center;
+	overflow: visible;
+}
+div.resizer-col-panel div.tooltip div:last-child::before {
+	content: '';
+	position: absolute;
+	right: 0;
+	border-left	: 4px solid dimgray;
+	border-top		: 4px solid transparent;
+	border-bottom	: 4px solid transparent;
+}
+
+div.resizer-row-panel span {
+	position:relative;
+	left: 5px;
+	color: black;
+	text-shadow: #999 1px 1px;
+}
+
+div.resizer-col-panel span {
+	position:relative;
+	--top: 5px;
+	color: black;
+	text-shadow: #999 1px 1px;
+}
+
+.ng-container div.mover-grip {
+	position: absolute;
+	border: 1px solid #999;
+	background-color: #ccc;
+	opacity:0.8;
+	cursor: move;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.ng-container div.mover-grip2 {
+	position: absolute;
+	width: 3px;
+	--border: 1px solid #999;
+	--opacity:0.8;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.ng-container div.mover-grip2 > div:first-child {
+	background-color: #666;
+	position: absolute;
+	left: 1px;
+	width: 1px;
+	height: 100%;
+}
+.ng-container div.mover-grip2::before {
+	content:' ';
+	display:inline-block;
+	position: absolute;
+	top: 0;
+	width:0;
+	height:0;
+	border-top:3px solid #666;
+	border-left:3px solid transparent;
+	border-right:3px solid transparent;
+}
+.ng-container div.mover-grip2::after {
+	content:' ';
+	display:inline-block;
+	position: absolute;
+	bottom: 0;
+	width:0;
+	height:0;
+	border-bottom:3px solid #666;
+	border-left:3px solid transparent;
+	border-right:3px solid transparent;
+}
+
+.ng-container div.mover-grip3 {
+	position: absolute;
+	height: 3px;
+	--border: 1px solid #999;
+	--opacity:0.8;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.ng-container div.mover-grip3 > div:first-child {
+	background-color: #666;
+	position: absolute;
+	top: 1px;
+	width: 100%;
+	height: 1px;
+}
+.ng-container div.mover-grip3::before {
+	content:' ';
+	display:inline-block;
+	position: absolute;
+	left: 0;
+	width:0;
+	height:0;
+	border-left:3px solid #666;
+	border-top:3px solid transparent;
+	border-bottom:3px solid transparent;
+}
+.ng-container div.mover-grip3::after {
+	content:' ';
+	display:inline-block;
+	position: absolute;
+	right: 0;
+	width:0;
+	height:0;
+	border-right:3px solid #666;
+	border-top:3px solid transparent;
+	border-bottom:3px solid transparent;
+}
+
+.ng-table {
+	border: none;
+	position: absolute;
+	top: 0;
+	display: table;
+	box-sizing: border-box;
+	border-collapse: separate;
+	border-spacing: 0;
+	margin: 0 auto;
+	padding: 0;
+	clear: both;
+	outline: none;
+	table-layout: fixed;
+	background-color: #fefefe;
+}
+
+.ng-table thead {
+	display: table-header-group;
+	position: relative;
+}
+
+.ng-table tfoot {
+	display: table-footer-group;
+	position: sticky;
+	bottom: 0;
+	z-index: 2;
+	background: #333;
+}
+
+.ng-table tbody {
+	display: table-row-group;
+	outline: none;
+}
+
+.ng-table th, .ng-table td {
+	display: table-cell;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-weight: normal;
+	height: inherit;
+}
+
+.ng-table tbody.fixed {
+	filter: brightness(98%);
+	display: table-header-group;
+}
+
+.ng-table tbody > .fixed {
+	filter: brightness(98%);
+}
+
+.ng-table th {
+	text-align: center;
+	background-color: #eee;
+	border-right: 1px solid #ccc;
+	border-left: none;
+}
+.ng-table td {
+	background-color: white;
+	border-right: 1px solid #eee;
+	border-left: none;
+}
+
+.ng-table th.right {
+	text-align: center;
+	background-color: #eee;
+	border-left: 1px solid #ccc;
+	border-right: none;
+}
+.ng-table td.right {
+	background-color: white;
+	border-left: 1px solid #eee;
+	border-right: none;
+}
+.ng-table thead th, .ng-table thead td {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.ng-table thead th, .ng-table tbody th {
+	border-bottom: 1px solid #ccc;
+	border-top: none;
+}
+.ng-table thead td, .ng-table tbody td {
+	border-bottom: 1px solid #eee;
+	border-top: none;
+}
+.ng-table tfoot th {
+	border-top: 1px solid #ccc;
+	border-bottom: none;
+}
+.ng-table tfoot td {
+	--border-top: 1px solid #eee;
+	border-top: none;
+	border-bottom: none;
+} 
+
+.ng-container-left > table, .ng-container-right > table {
+	width: 100%!important;
+	--height: 100%;
+}
+
+.ng-container-left thead th, .ng-container-left thead td, .ng-container-right thead th, .ng-container-right thead td,
+.ng-container-left tfoot th, .ng-container-left tfoot td, .ng-container-right tfoot th, .ng-container-right tfoot td {
+	filter: brightness(95%);
+}
+
+.ng-container-left tbody th, .ng-container-left tbody td, .ng-container-right tbody th, .ng-container-right tbody td {
+	filter: brightness(98%);
+}
+
+
+
+.ng-container-right th:first-child {
+	border-left: 1px solid #ccc
+}
+.ng-container-right td:first-child {
+	border-left: 1px solid #eee;
+}
+
+ng-vscrollbar > .ng-scroll-top > .ng-scroll-icon {
+	border-bottom	: 4px solid #999;
+	border-left		: 4px solid transparent;
+	border-right	: 4px solid transparent;
+}
+
+ng-vscrollbar > .ng-scroll-top:disabled > .ng-scroll-icon {
+	border-bottom	: 4px solid #ccc!important;
+}
+
+ng-vscrollbar > .ng-scroll-bottom > .ng-scroll-icon {
+	border-top		: 4px solid #999;
+	border-left		: 4px solid transparent;
+	border-right	: 4px solid transparent;
+}
+
+ng-vscrollbar > .ng-scroll-bottom:disabled > .ng-scroll-icon {
+	border-top		: 4px solid #ccc!important;
+}
+
+
+
+ng-hscrollbar > .ng-scroll-left > .ng-scroll-icon {
+	border-right	: 4px solid #999;
+	border-top		: 4px solid transparent;
+	border-bottom	: 4px solid transparent;
+}
+
+ng-hscrollbar > .ng-scroll-left:disabled > .ng-scroll-icon {
+	border-right	: 4px solid #ccc!important;
+}
+
+ng-hscrollbar > .ng-scroll-right > .ng-scroll-icon {
+	border-left		: 4px solid #999;
+	border-top		: 4px solid transparent;
+	border-bottom	: 4px solid transparent;
+}
+
+ng-hscrollbar > .ng-scroll-right:disabled > .ng-scroll-icon {
+	border-left		: 4px solid #ccc!important;
+}
+
+.ng-scroll-thumb {
+	position: absolute;
+	background-color: #eee;
+	box-sizing	: border-box;
+	border: 1px solid #ccc;
+	border-radius: 3px 3px 3px 3px;
+}
+
+.ng-scroll-thumb:hover, .ng-scroll-left:hover, .ng-scroll-right:hover, .ng-scroll-top:hover, .ng-scroll-bottom:hover {
+	filter: brightness(95%);
+}
+
+.ng-scroll-thumb:disabled, .ng-scroll-left:disabled, .ng-scroll-right:disabled, .ng-scroll-top:disabled, .ng-scroll-bottom:disabled {
+	pointer-events:none;
+}
+
+
+
+
+
+.context-menu-list {
+	padding: 0em 0;
+}
+
+.ng-table thead th.asc::after,
+.ng-table thead td.asc::after,
+.ng-table thead th.desc::after,
+.ng-table thead td.desc::after {
+	content: '';
+	display: inline-flex;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	margin-left: 3px;
+}
+.ng-table thead th.asc::after,
+.ng-table thead td.asc::after {
+	border-top: 4px solid #666;
+	transform: translateY(-50%);
+}
+.ng-table thead th.desc::after,
+.ng-table thead td.desc::after {
+	border-bottom: 4px solid #666;
+	transform: translateY(-150%);
+}
+
+.ng-table th:focus,.ng-table td:focus {
+	outline: none;/**1px solid red;*/
+}
+
+.ng-table th:focus,.ng-table td:focus {
+	filter: brightness(100%) !important;
+}
+.ng-table th:not(.selected):focus::after,
+.ng-table td:not(.selected):focus::after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 0;
+	height: 0;
+	border-top: 2px solid green;
+	border-right: 2px solid green;
+	border-left: 2px solid transparent;
+	border-bottom: 2px solid transparent;
+}
+
+
+
+
+@keyframes copied { 50% { filter: brightness(80%); } }
+.ng-table td.copied {
+	filter: unset;
+	animation: copied 0.5s step-end 5;
+}
+
+.ng-table thead th, .ng-table thead td {
+	position: relative;
+}
+
+ng-filter-panel nine-grid thead, ng-combo-panel nine-grid thead {
+	display: none !important;
+}
+
+ng-filter-panel nine-grid .ng-body {
+	border-top: 1px solid #666;
+}
+ng-filter-panel nine-grid ng-vscrollbar, ng-combo-panel nine-grid ng-vscrollbar {
+    border-top: none;
+}
+
+ng-filter-button {
+	position: absolute;
+	right: 1px;
+	bottom: 1px;
+	width: 16px;
+	height: 16px;
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer !important;
+}
+
+ng-filter-button::after {
+	content: '';
+	border-top: 0.3em solid #999;
+	border-right: 0.3em solid transparent;
+	border-bottom: 0;
+	border-left: 0.3em solid transparent;
+}
+ng-filter-button.filtered::after {
+	content: '';
+	width: 16px;
+	height: 16px;
+	border: none;
+	background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4ZjViM2JiOC1jMGM0LWY5NDQtODEyZS0xODFmMTE5ZGFlYTAiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MzRBQzZERUJCNzMyMTFFODk1RDNFRkJBOTQwRTJENEYiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MzRBQzZERUFCNzMyMTFFODk1RDNFRkJBOTQwRTJENEYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDA4M2JmNmUtNzZkMi00NTQ4LWFjMmUtNGNkOWZhNTkxZWU2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjhmNWIzYmI4LWMwYzQtZjk0NC04MTJlLTE4MWYxMTlkYWVhMCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pl2sSF0AAAEZSURBVHjaYvz//z8DNQATA5UA1QxiARGNrT1E+6++uoQRp0H4FCADfBayEKOIKACKNRBuaOn+D2Njw4TkkQO7GJergOLxhBzEiJyOgBq8gNRW9PACWQASA9JhQG4dEKsC8W0gbgKKr8IwCKqpHUhVwAxDMiQEyF0ND1wWFgZ2djaGr1+/hYMMY8ISvZU4XN8AY7CysjJEhQcxxEaGMkBdiDNBfsciplqUl8HAycnBEBsVwiDAz8ewYMkKBqg3cRr0HOgVLTSx2ywszAwZKfFAL7EzzJ6/lOHHj58M0LDCbhDQe8pA6iJ65C1buZ7h7bv3DAuXrGL4/h3u6GasgY0tJSMFfDiIC8QqQHwHJASUW0nQoKFdjAAEGACYvJ2+9Ajh4AAAAABJRU5ErkJggg==');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: auto;
+}
+
+ng-filter-panel .ng-table tbody td:hover {
+	filter: unset;
+}
+ng-filter-panel .ng-table tbody tr:hover {
+	filter: brightness(95%);
+}
+
+ng-filter-panel {
+	z-index: 3;
+	position: absolute;
+	width: 250px;
+	height: 300px;
+	border: 1px solid #999;
+	background-color: white;
+	overflow: hidden;
+	resize: both;
+	box-shadow: 0 0 9px 0 #999;
+	display: flex;
+	flex-direction: column;
+}
+
+ng-filter-panel > div:first-child {
+	position: relative;
+	display: block;
+	left: 6px;
+	top: 6px;
+	width: calc(100% - 12px);
+	height: 24px;
+}
+
+ng-filter-panel > div:last-child {
+    position: relative;
+    left: 6px;
+    top: 10px;
+    width: calc(100% - 12px);
+    height: 32px;
+    display: flex;
+    align-items: center;
+}
+
+ng-filter-panel > nine-grid {
+    position: relative !important;
+	left: 6px;
+	top: 10px;
+	width: calc(100% - 12px);
+	height: calc(100% - 70px);
+}
+
+ng-filter-panel > div:first-child > input[type=text] {
+	width: 100%;
+	height: 100%;
+	outline: none;
+}
+
+ng-filter-panel > div:last-child > input[type=checkbox] {
+	position: relative;
+}
+
+ng-filter-panel > div:last-child > label {
+	display: flex;
+	align-items: center;
+}
+ng-filter-panel > div:last-child > label:hover {
+	color: cornflowerblue;
+	text-decoration: underline;
+}
+ng-filter-panel > div:last-child > label > input {
+	position: relative;
+	margin-right: 4px;
+}
+ng-filter-panel > div:last-child > button {
+	position: absolute;
+	width: 60px;
+	height: 24px;
+	border: 1px solid #999;
+}
+
+ng-filter-panel > div:last-child > #btnOk {
+	right: 63px;
+}
+
+ng-filter-panel > div:last-child > #btnCancel {
+	right: 0;
+}
+
+ng-filter-panel .ng-table td {
+	border-right: 0 none;
+	border-bottom: 0 none;
+}
+
+ng-filter-panel .ng-table span.group {
+	color: #999;
+	font-weight: bold;
+	font-style: italic;
+}
+ng-filter-panel .ng-table span.invalid {
+	color: #ccc;
+	font-style: italic;
+}
+ng-filter-panel .ng-table span.empty {
+	color: #ccc;
+	font-style: italic;
+}
+
+nine-grid thead .col-indicator-rowgroup.expand {
+	height: 20px;
+}
+nine-grid thead .col-indicator-rowgroup.collapse {
+	height: 2px;
+}
+nine-grid thead .col-indicator-rowgroup.expand th {
+	background-color: #eee;
+	border-right-color: #ccc;
+	border-top: 2px solid #666;
+}
+nine-grid thead .col-indicator-rowgroup.collapse th {
+	background-color: #666;
+	border: none;
+}
+nine-grid thead .col-indicator-rowgroup.collapse div {
+	display: unset;
+}
+nine-grid thead .col-indicator-rowgroup.collapse div {
+	display: none;
+}
+
+nine-grid .ng-table .dummy {
+	display: none;
+}
+
+nine-grid .ng-table thead th.added,
+nine-grid .ng-table thead th.updated {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 16px 22px;
+}
+nine-grid .ng-table thead th.deleted {
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill:none;stroke:red;stroke-width:2;" viewBox="0 0 16 16" focusable="false" aria-hidden="true"><path d="M8.2 13.9H14v.1H8.1l.1-.1Zm2.37-9.17.7.7-5.3 5.3-.7-.7 5.3-5.3Zm2.71-2.7a.1.1 0 0 1 .14 0l.57.57a.1.1 0 0 1 0 .14l-.58.58-.71-.71.58-.58ZM3.15 12.15l.7.71-.24.24a1 1 0 0 1-.43.26l-.74.2.21-.73a1 1 0 0 1 .26-.44l.24-.24Z"></path></svg>');
+}
+nine-grid .ng-table thead th.updated {
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill:none;stroke:darkgoldenrod;stroke-width:2;" viewBox="0 0 16 16" focusable="false" aria-hidden="true"><path d="M8.2 13.9H14v.1H8.1l.1-.1Zm2.37-9.17.7.7-5.3 5.3-.7-.7 5.3-5.3Zm2.71-2.7a.1.1 0 0 1 .14 0l.57.57a.1.1 0 0 1 0 .14l-.58.58-.71-.71.58-.58ZM3.15 12.15l.7.71-.24.24a1 1 0 0 1-.43.26l-.74.2.21-.73a1 1 0 0 1 .26-.44l.24-.24Z"></path></svg>');
+}
+nine-grid .ng-table thead th.added {
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill:none;stroke:blue;stroke-width:2;" viewBox="0 0 16 16" focusable="false" aria-hidden="true"><path d="M8.2 13.9H14v.1H8.1l.1-.1Zm2.37-9.17.7.7-5.3 5.3-.7-.7 5.3-5.3Zm2.71-2.7a.1.1 0 0 1 .14 0l.57.57a.1.1 0 0 1 0 .14l-.58.58-.71-.71.58-.58ZM3.15 12.15l.7.71-.24.24a1 1 0 0 1-.43.26l-.74.2.21-.73a1 1 0 0 1 .26-.44l.24-.24Z"></path></svg>');
+}
+
+
+
+ng-combo-panel {
+	z-index: 3;
+	position: absolute;
+	width: 250px;
+	height: 300px;
+	border: 1px solid #999;
+	background-color: white;
+	overflow: hidden;
+	resize: both;
+	box-shadow: 0 0 9px 0 #999;
+	display: flex;
+	flex-direction : column;
+}
+
+ng-combo-panel.expand > div:first-child {
+	display: block;
+	position: relative;
+	--left: 6px;
+	--top: 6px;
+	--width: calc(100% - 12px);
+	height: 24px;
+	min-height: 24px;
+}
+
+ng-combo-panel > div:first-child {
+	display: none;
+}
+
+
+ng-combo-panel > div:first-child > input[type=text] {
+	width: 100%;
+	height: 100%;
+	outline: none;
+}
+
+ng-combo-panel.expand {
+	padding: 6px;
+}
+ng-combo-panel.expand > nine-grid {
+	margin-top: 3px;
+}
+ng-combo-panel.expand > div:last-child {
+	margin-top: 3px;
+	background-color: unset;
+	--height: 24px;
+}
+ng-combo-panel > div:last-child {
+	background-color: #f0f0f0;
+	margin-top: 0;
+	height: 28px;
+}
+
+ng-combo-panel.expand > nine-grid {
+	width: 100%;
+	height: 100%;
+}
+ng-combo-panel.expand .ng-body {
+	border: 1px solid #ccc;
+}
+ng-combo-panel > nine-grid {
+	position: relative !important;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+ng-combo-panel .ng-body {
+	top: 0 !important;
+	bottom: 0 !important;
+	border: none;
+}
+
+ng-combo-panel .ng-container-body table {
+	--width: 100px;
+	--height: 100px;
+}
+
+ng-combo-panel thead {
+	visibility: collapse;
+}
+
+ng-combo-panel .ng-table td {
+	border-right: 0 none;
+	border-bottom: 0 none;
+}
+
+ng-combo-panel .ng-container-left td {
+	filter: unset;
+}
+ng-combo-panel .ng-container-body .ng-table td:nth-child(even) {
+	filter: brightness(98%);
+}
+
+ng-combo-panel > div:last-child {
+	position: relative;
+	display: none;
+	width: 100%;
+	height: 24px;
+	min-height: 24px;
+	bottom: 0;
+}
+ng-combo-panel > div:last-child > button {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+ng-combo-panel.multi > div:last-child {
+	display: flex;
+	align-items: center;
+}
+
+ng-combo-panel > div:last-child > input[type=checkbox] {
+	position: relative;
+	width: 22px;
+}
+ng-combo-panel > div:last-child > label {
+	margin-left: 3px;
+	white-space: nowrap;
+}
+ng-combo-panel > div:last-child > label:hover {
+	color: cornflowerblue;
+	text-decoration: underline;
+	height: 18px;
+}
+ng-combo-panel > div:last-child > button {
+	margin-left: 12px;
+	height: 24px;
+	outline: none;
+	border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #f0f0f0;
+}
+ng-combo-panel > div:last-child > button:hover {
+	filter: brightness(95%);
+}
+ng-combo-panel > div:last-child > button:active {
+	filter: brightness(90%);
+}
+
+ng-combo-panel .col-indicator-rowgroup {
+	display: none;
+}
+ng-combo-panel .ng-background {
+	display: none;
+}
+
+ng-combo-panel .ng-table td.selected,
+ng-filter-panel .ng-table td.selected {
+	background-color: green;
+	color: white;
+	filter: unset !important;
+}
+
+ng-combo-panel .ng-table td.selectedTop,
+ng-combo-panel .ng-table td.selectedBottom,
+ng-combo-panel .ng-table td.selectedLeft,
+ng-combo-panel .ng-table td.selectedRight,
+ng-filter-panel .ng-table td.selectedTop,
+ng-filter-panel .ng-table td.selectedBottom,
+ng-filter-panel .ng-table td.selectedLeft,
+ng-filter-panel .ng-table td.selectedRight {
+	border-top: 0 !important;
+}
+
+ng-combo-panel .ng-table tbody .selectedBottom,
+ng-filter-panel .ng-table tbody .selectedBottom {
+	border-bottom: 0 !important;
+}
+
+ng-combo-panel .ng-table tbody td:hover,
+ng-filter-panel .ng-table tbody td:hover {
+	filter: unset;
+}
+ng-combo-panel .ng-table tbody tr:hover,
+ng-filter-panel .ng-table tbody tr:hover {
+	filter: brightness(95%);
+}
+
+
+ng-tree-item {
+	position: relative;
+	display: inline-flex;
+	width: 100%;
+	height: 100%;
+	padding-left: 3px;
+}
+
+.ng-table td.selectedLeft ng-tree-item {
+	padding-left: 1px;
+}
+
+ng-tree-item div {
+	position: relative;
+	--box-sizing: border-box;
+}
+
+ng-tree-item div.wrap {
+	--display: inline-flex;
+	width: 12px;
+	min-width: 12px;
+	height: 100%;
+	--border: 1px solid red;
+}
+
+ng-tree-item div.wrap::before {
+	content: "";
+	display: inline-flex;
+	position: relative;
+	border-left: 1px dotted #ddd;
+	height: 100%;
+	width: 0;
+	left: 6px;
+}
+
+ng-tree-item div.wrapUp::before {
+	transform: translateY(-50%);
+}
+ng-tree-item div.wrapDown::before {
+	transform: translateY(50%);
+}
+ng-tree-item div.wrapNone::before {
+	display: none;
+	--transform: translateY(100%);
+}
+
+ng-tree-item div.item {
+	display: inline-flex;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+ng-tree-item div.line {
+	
+}
+
+
+ng-tree-item div.icon {
+	display: flex;
+	align-items: center;
+	width: 12px;
+	min-width: 12px;
+	height: 100%;
+	outline: 0;
+}
+ng-tree-item div.icon > div {
+	width: 12px;
+	height: 12px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	background-color: white;
+	z-index: 1;
+}
+ng-tree-item div.off > div {
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/></svg>');
+}
+ng-tree-item div.on > div {
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/><path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/></svg>');
+}
+ng-tree-item div.node > div {
+	background-image: none;
+	border-radius: 50%;
+	width:6px;
+	height: 6px;
+	background-color: dimgray;
+	position: relative;
+	left: 3px;
+}
+ng-tree-item div.icon::before {
+	content: "";
+	--display: inline-flex;
+	position: relative;
+	border-left: 1px dotted #ddd;
+	height: 100%;
+	width: 0;
+	left: 6px;
+}
+
+ng-tree-item div.iconUp::before {
+	transform: translateY(-50%);
+}
+ng-tree-item div.iconDown::before {
+	transform: translateY(50%);
+}
+ng-tree-item div.iconNone::before {
+	display: none;
+}
+
+
+
+
+ng-tree-item div.line2 {
+	display: inline-flex;
+	width: 12px;
+	min-width: 12px;
+	height: 100%;
+	align-items: center;
+}
+
+ng-tree-item div.line2::after {
+	content: "";
+	border-bottom: 1px dotted #ddd;
+	height: 0;
+	width: 12px;
+}
+
+ng-tree-item div.line2::before {
+	content: "";
+	position: relative;
+	border-left: 1px dotted #ddd;
+	width: 0;
+	height: 100%;
+	left: 6px;
+}
+ng-tree-item div.line2Down::before {
+	transform: translateY(50%);
+}
+ng-tree-item div.line2None::before {
+	display: none;
+}
+
+ng-tree-item span.text {
+	--margin-left: 4px;
+}
+
+ng-foot {
+	position: relative;
+	display: none;
+	width: 100%;
+	height: 0;
+}
+ng-foot.expand {
+	display: flex;
+	height: 22px;
+}
+ng-layout {
+	position: relative;
+	display: flex;
+	height: 100%;
+	width: calc(100% - 10px);
+	--top: 3px;
+	--bottom: 0px;
+	--left: 1px;
+}
+
+ng-paging {
+	position: relative;
+	display: flex;
+	flex-direction: row-reverse;
+	height: calc(100% - 3px);
+	margin-top: 3px;
+	width: 400px;
+	--border: 1px solid blueviolet;
+}
+
+ng-paging span {
+	--margin-top: 2px;
+	margin-left: 6px;
+	margin-right: 6px;
+	color: #999;
+}
+
+ng-paging button {
+	width: 17px;
+	height: 100%;
+	margin-left: 2px;
+	outline: none;
+	border: 1px solid #ccc;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: auto;
+}
+ng-paging button:hover {
+	filter: brightness(95%);
+}
+ng-paging button:disabled {
+	opacity: 0.5;
+}
+
+ng-paging .ng-paging-first {
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="%23999" viewBox="0 0 16 16"><path d="M4 4a.5.5 0 0 1 1 0v3.248l6.267-3.636c.54-.313 1.232.066 1.232.696v7.384c0 .63-.692 1.01-1.232.697L5 8.753V12a.5.5 0 0 1-1 0z"/></svg>');
+}
+ng-paging .ng-paging-prev {
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="%23999" viewBox="0 0 16 16"><path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/></svg>');
+}
+ng-paging .ng-paging-next {
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="%23999" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg>');
+}
+ng-paging .ng-paging-last {
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="%23999" viewBox="0 0 16 16"><path d="M12.5 4a.5.5 0 0 0-1 0v3.248L5.233 3.612C4.693 3.3 4 3.678 4 4.308v7.384c0 .63.692 1.01 1.233.697L11.5 8.753V12a.5.5 0 0 0 1 0z"/></svg>');
+}
+
+ng-line-chart {
+	height: 100%;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+ng-line-chart div:first-child {
+	height: 100%;
+    width: 100%;
+    --display: inline-flex;
+    --align-items: center;
+    --justify-content: center;
+    --overflow: hidden;
+}
+
+ng-line-chart canvas:first-child {
+	height: 100%;
+    width: 100%;
+    --display: inline-flex;
+    --align-items: center;
+    --justify-content: center;
+    --overflow: hidden;
+}
+
+
+/** .enable-fixed-col */
+nine-grid.enable-fixed-col .ng-container-left thead::before,
+nine-grid.enable-fixed-col .ng-container-body thead::before,
+nine-grid.enable-fixed-col .ng-container-body thead::after,
+nine-grid.enable-fixed-col .ng-container-right thead::after {
+	z-index: 1;
+	content: '';
+	cursor: pointer;
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 4px;
+	border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+}
+
+nine-grid.enable-fixed-col .ng-container-left thead::before,
+nine-grid.enable-fixed-col .ng-container-body thead::before {
+	right: 1px;
+	border-right: 4px solid #999;
+}
+
+nine-grid.enable-fixed-col .ng-container-body thead::after,
+nine-grid.enable-fixed-col .ng-container-right thead::after {
+	left: 1px;
+	border-left: 4px solid #999;
+}
+/**************************************************/
+
+ng-context-menu-panel {
+	position: absolute;
+	font-family: "Malgun Gothic", "맑은 고딕", AppleSDGothicNeo-Light, sans-serif;
+	font-size: 12px;
+	z-index: 9999;
+}
+
+ng-context-menu-panel ul {
+	position: absolute; 
+	display: inline-block;
+	min-width: 13em;
+	max-width: 26em;
+	padding: .25em 0;
+	margin: .3em;
+	font-family: inherit;
+	font-size: inherit;
+	list-style-type: none;
+	background: #fff;
+	border: 1px solid #bebebe;
+	border-radius: .2em;
+	-webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+			box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+}
+
+ng-context-menu-panel li {
+	position: relative;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	padding: .2em 2em;
+	color: #2f2f2f;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none; 
+	background-color: #fff;
+}
+
+ng-context-menu-panel li:hover {
+	--color: #fff;
+	cursor: pointer; 
+	background-color: #ddd;
+}
+
+ng-context-menu-panel li.submenu:after {
+	position: absolute;
+	top: 50%;
+	right: .5em;
+	--z-index: 1; 
+	width: 0;
+	height: 0;
+	content: '';
+	border-color: transparent transparent transparent #2f2f2f;
+	border-style: solid;
+	border-width: .25em 0 .25em .25em;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+ng-context-menu-panel li > ul {
+  top: .3em; 
+  /* re-positioned by js */
+  right: -.3em;
+  display: none;
+}
+
+ng-context-menu-panel li.visible > ul {
+  display: block;
+}
+
+ng-context-menu-panel li.on {
+	display: flex;
+	align-items: center;
+}
+
+ng-context-menu-panel li.on::before {
+	content: '';
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 16px;
+	height: 16px;
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="dimgray" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/></svg>');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+ng-context-menu-panel li.separator {
+  padding: 0; 
+  margin: .35em 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+ng-context-menu-panel li.disabled {
+	color: #bbb;
+	cursor: default; 
+	background-color: #fff;
+	pointer-events:none;
+}
+
+/****************************/
+.ng-table input[type=text]:hover {
+	border: 1px solid #ccc;
+}
+
+@keyframes focused { 50% { box-shadow: 0 0 0 .2rem rgba(40, 167, 69, 0.5); } }
+@keyframes fadein {
+	from { box-shadow: 0 0 0 .2rem rgba(40, 167, 69, .5); }
+	to { box-shadow: 0 0 0 .2rem rgba(40, 167, 69, .25); }
+}
+.ng-table input:not([type=color]):focus {
+	--border-color: #86B7FE;
+	--box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25);
+	--border-color: #6265e4 !important;
+	--box-shadow: 0 0 5px rgba(98, 101, 228, 1);
+	border-color: #28a745;
+	box-shadow: 0 0 0 .2rem rgba(40, 167, 69, 0.25);
+	--animation: fadein 0.3s;
+}
+
+.ng-table ng-combo:hover {
+	border-color: #28a745;
+	box-shadow: 0 0 0 .2rem rgba(40, 167, 69, 0.25);
+}
+
+.ng-table tbody .active {
+	--filter: unset !important;
+}
+
+.ng-table tbody .editing {
+	filter: unset;
+}
+
+.ng-table tbody th.editing,
+.ng-table tbody td.editing {
+	border-right: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	border-left: none;
+	border-top: none;
+}
+/**
+.ng-table tbody th:not(.active):hover,
+.ng-table tbody td:not(.active):hover {
+	filter: brightness(95%) !important;
+} */
+
+.ng-table tbody th.active:hover,
+.ng-table tbody td.active:hover {
+	filter: brightness(99.5%);
+}
+
+.ng-table.select-type-col tbody th:not(.active):hover,
+.ng-table.select-type-col tbody td:not(.active):hover,
+.ng-table.select-type-cols tbody th:not(.active):hover,
+.ng-table.select-type-cols tbody td:not(.active):hover,
+.ng-table.select-type-area tbody th:not(.active):hover,
+.ng-table.select-type-area tbody td:not(.active):hover,
+.ng-table.select-type-cell tbody th:not(.active):hover,
+.ng-table.select-type-cell tbody td:not(.active):hover {
+	filter: brightness(95%) !important;
+}
+
+.ng-table.select-type-row tbody tr.hover,
+.ng-table.select-type-rows tbody tr.hover {
+	filter: brightness(95%) !important;
+}
+
+.ng-table.select-type-cell tbody th:focus.selected,
+.ng-table.select-type-cell tbody td:focus.selected {
+	border: 2px solid green;
+	--filter: unset;
+}
+
+.ng-table.select-type-cell tbody th:not(.active).selected,
+.ng-table.select-type-cell tbody td:not(.active).selected,
+.ng-table.select-type-col tbody th:not(.active).selected,
+.ng-table.select-type-col tbody td:not(.active).selected,
+.ng-table.select-type-cols tbody th:not(.active).selected,
+.ng-table.select-type-cols tbody td:not(.active).selected,
+.ng-table.select-type-row tbody th:not(.active).selected,
+.ng-table.select-type-row tbody td:not(.active).selected,
+.ng-table.select-type-rows tbody th:not(.active).selected,
+.ng-table.select-type-rows tbody td:not(.active).selected,
+.ng-table.select-type-area tbody th:not(.active).selected,
+.ng-table.select-type-area tbody td:not(.active).selected {
+	filter: brightness(98%);
+}
+
+.ng-table.select-type-col tbody .selectedTop,
+.ng-table.select-type-cols tbody .selectedTop,
+.ng-table.select-type-row tbody .selectedTop,
+.ng-table.select-type-rows tbody .selectedTop,
+.ng-table.select-type-area tbody :focus.selectedTop,
+.ng-table.select-type-area tbody .multiSelected.selectedTop {
+	border-top: 2px solid green;
+}
+
+.ng-table.select-type-col tbody .selectedBottom,
+.ng-table.select-type-cols tbody .selectedBottom,
+.ng-table.select-type-row tbody .selectedBottom,
+.ng-table.select-type-rows tbody .selectedBottom,
+.ng-table.select-type-area tbody :focus.selectedBottom,
+.ng-table.select-type-area tbody .multiSelected.selectedBottom {
+	border-bottom: 2px solid green;
+}
+
+.ng-table.select-type-col tbody .selectedLeft,
+.ng-table.select-type-cols tbody .selectedLeft,
+.ng-table.select-type-row tbody .selectedLeft,
+.ng-table.select-type-rows tbody .selectedLeft,
+.ng-table.select-type-area tbody :focus.selectedLeft,
+.ng-table.select-type-area tbody .multiSelected.selectedLeft {
+	border-left: 2px solid green;
+}
+
+.ng-table.select-type-col tbody .selectedRight,
+.ng-table.select-type-cols tbody .selectedRight,
+.ng-table.select-type-row tbody .selectedRight,
+.ng-table.select-type-rows tbody .selectedRight,
+.ng-table.select-type-area tbody :focus.selectedRight,
+.ng-table.select-type-area tbody .multiSelected.selectedRight {
+	border-right: 2px solid green;
+}
+
+
+
+.ng-table td.selectedTop {
+	--border-top: 2px solid green;
+}
+
+.ng-table td.selectedBottom {
+	--border-bottom: 2px solid green;
+}
+
+.ng-table td.selectedLeft {
+	--border-left: 2px solid green;
+}
+
+.ng-table td.selectedRight {
+	--border-right: 2px solid green;
+}
+
+
+.ng-table .selectedArea {
+	filter: brightness(85%) !important;
+}
+
+.ng-table .selectedCurrent {
+	filter: brightness(92%) !important;
+}
+
+/**
+.ng-table .selectedCurrent > div:first-child::before {
+	content:'';
+	margin-right:3px;
+	display:inline-block;;
+	width:0;
+	height:0;
+	border-left:4px solid #333;
+	border-top:4px solid transparent;
+	border-bottom:4px solid transparent;
+}*/
+
+nine-grid .ng-table .last-none-suppress {
+	border-bottom: none;
+}
+nine-grid .ng-table .suppress:not(.last-suppress) {
+	border-bottom: none;
+}
+nine-grid .ng-table .suppress > * {
+	display: none;
+}

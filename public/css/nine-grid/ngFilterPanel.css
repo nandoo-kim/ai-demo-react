@@ -1,0 +1,94 @@
+@keyframes loading{to{transform:rotate(360deg)}}
+:host(.loading) {
+	filter: brightness(90%);
+	--filter: brightness(90%);
+}
+:host(.loading)::after {
+	width: 2rem;
+	height: 2rem;
+	content:'';
+	position: absolute;
+	top: calc(50% - 16px);
+	left: calc(50% - 16px);
+	display: inline-block;
+	border-radius: 50%;
+	border: 0.25em solid green;
+	border-right-color:transparent;
+	animation: 0.75s linear infinite loading;
+}
+
+:host {
+	z-index: 3;
+	position: absolute;
+	width: 250px;
+	height: 300px;
+	border: 1px solid #999;
+	background-color: white;
+	overflow: hidden;
+	resize: both;
+	box-shadow: 0 0 9px 0 #999;
+	display: flex;
+	flex-direction: column;
+	padding: 8px;
+}
+
+nine-grid {
+	margin-top: 4px;
+}
+
+div.head {
+	position: relative;
+    display: flex;
+    width: 100%;
+    height: 32px;
+}
+div:last-child {
+    position: relative;
+    width: 100%;
+    height: 26px;
+    display: flex;
+    align-items: end;
+	margin-top: 8px;
+}
+
+input[type=text] {
+	--width: -webkit-fill-available;
+	--height: -webkit-fill-available;
+	width: 100%;
+	--height: 100%;
+	outline: none;
+	background-color: white;
+	color: #333;
+	border: 1px solid #666;
+}
+
+input[type=checkbox] {
+	--margin-right: 4px;
+}
+
+label {
+	display: flex;
+	align-items: center;
+}
+label:hover {
+	color: cornflowerblue;
+	text-decoration: underline;
+}
+label > input {
+	--position: relative;
+	--margin-right: 4px;
+}
+button {
+	position: absolute;
+	width: 60px;
+	height: 24px;
+	border: 1px solid #999;
+}
+
+#btnOk {
+	right: 66px;
+}
+
+#btnCancel {
+	right: 0px;
+}

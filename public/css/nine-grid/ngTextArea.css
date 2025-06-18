@@ -1,0 +1,64 @@
+:host {
+	height: 100%;
+	width: calc(100% - 4px);
+	display: flex;
+	align-items: center;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+:host(.ng-left) textarea {
+	text-align: left;
+}
+:host(.ng-center) textarea {
+	text-align: center;
+}
+:host(.ng-right) textarea {
+	text-align: right;
+}
+
+textarea {
+	position: relative;
+	-moz-user-select: auto;
+	-webkit-user-select: auto;
+	-ms-user-select: auto;
+	user-select: auto;
+	width: 100%;
+	height: calc(100% - 4px);
+	border: 1px solid #eee;
+	border-radius: 3px;
+	padding-left: 4px;
+	outline: 0;
+	font: inherit;
+	box-sizing: border-box;
+	resize: none;
+}
+
+textarea[readonly] {
+	border-color: #fdfdfd;
+	filter: brightness(98%);
+}
+textarea:disabled {
+	border-color: #fdfdfd;
+	filter: brightness(95%);
+}
+
+ng-expand-button {
+	height: calc(100% - 4px);
+}
+textarea.border-left-none {
+	border-left: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+textarea.border-right-none {
+	border-right: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+ng-expand-button.ng-first {
+	margin-left: 0;
+}
+ng-expand-button.ng-last {
+	margin-right: 0;
+}

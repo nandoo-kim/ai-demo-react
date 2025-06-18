@@ -1,0 +1,102 @@
+:host {
+	z-index: 3;
+	position: absolute;
+	width: 250px;
+	height: 300px;
+	border: 1px solid #999;
+	background-color: white;
+	overflow: hidden;
+	resize: both;
+	box-shadow: 0 0 9px 0 #999;
+	display: flex;
+	flex-direction : column;
+	padding: 0;
+	margin:  0;
+}
+
+div.head {
+	display: none;
+	width: 100%;
+}
+
+div.head input[type=text] {
+	width: 100%;
+	--height: 100%;
+	outline: none;
+}
+
+:host(.expand) {
+	padding: 8px;
+}
+:host(.expand) div.head {
+	position: relative;
+    display: flex;
+    height: 32px;
+}
+:host(.expand) div:last-child {
+	margin-top: 3px;
+	background-color: unset;
+}
+div:last-child {
+	background-color: #f0f0f0;
+	margin-top: 0;
+	height: 28px;
+}
+
+nine-grid {
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+:host(.expand) nine-grid {
+	margin-top: 4px;
+	border: 1px solid #ccc;
+	--border-top: 3px solid #ccc;
+}
+
+div:last-child {
+	position: relative;
+	display: none;
+	width: 100%;
+	height: 24px;
+	min-height: 24px;
+	bottom: 0;
+}
+div:last-child button {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+:host(.multi) div:last-child {
+	display: flex;
+	align-items: center;
+}
+
+div:last-child input[type=checkbox] {
+	position: relative;
+	width: 22px;
+}
+div:last-child label {
+	margin-left: 3px;
+	white-space: nowrap;
+}
+div:last-child label:hover {
+	color: cornflowerblue;
+	text-decoration: underline;
+	height: 18px;
+}
+div:last-child button {
+	margin-left: 12px;
+	height: 24px;
+	outline: none;
+	border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #f0f0f0;
+}
+div:last-child button:hover {
+	filter: brightness(95%);
+}
+div:last-child button:active {
+	filter: brightness(90%);
+}
